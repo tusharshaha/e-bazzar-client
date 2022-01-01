@@ -1,24 +1,46 @@
-import logo from './logo.svg';
 import './App.css';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { css } from "@emotion/react";
+import { GridLoader } from "react-spinners";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import Home from './Components/Home/Home/Home';
 function App() {
+  const [loading, setLoading] = useState(false)
+  const override = css``
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000)
+  }, [])
+  useEffect(() => {
+    AOS.init({ offset: 160, duration: 900, delay: 100 })
+  }, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+     {loading?
+     <div className='preloader'>
+       <GridLoader
+       loading={loading}
+       color='yellow'
+       margin={2}
+       size={18}
+       css={override}
+       />
+     </div>
+     :
+     <div className="App">
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Home/>}/>
+            <Route path='home' element={<Home/>}/>
+          </Routes>
+        </BrowserRouter>
+      </div>}
+    </>
   );
 }
 
