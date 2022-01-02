@@ -3,13 +3,11 @@ import { Container, Row, Col, Spinner } from 'react-bootstrap';
 import {BsFillCartPlusFill} from 'react-icons/bs';
 import {FaEye} from 'react-icons/fa';
 import useProducts from '../../Hooks/useProducts';
-import { addCart } from '../../LocalStorage/localStorage';
 import Footer from '../Shared/Footer/Footer';
 import Header from '../Shared/Header/Header';
 
 const AllProducts = () => {
-    const { products } = useProducts()
-    
+    const { products } = useProducts();
     return (
         <>
             <Header></Header>
@@ -25,7 +23,7 @@ const AllProducts = () => {
                             products?.map(product => <Col key={product._id}>
                                 <div data-aos='fade-up' className='custom-card'>
                                     <div className='icon-container'>
-                                        <button onClick={()=>addCart(product._id)} title='Add To Cart' className="icon">
+                                        <button  title='Add To Cart' className="icon">
                                             <BsFillCartPlusFill />
                                         </button>
                                         <button title='View Details' className="icon">

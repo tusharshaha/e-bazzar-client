@@ -6,6 +6,7 @@ import { css } from "@emotion/react";
 import { GridLoader } from "react-spinners";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import ContextProvider from './Context/ContextProvider'
 import Home from './Components/Home/Home/Home';
 import AllProducts from './Components/AllProducts/AllProducts';
 function App() {
@@ -23,29 +24,31 @@ function App() {
   }, [])
   return (
     <>
-     {loading?
-    //  this is for preloader
-     <div className='preloader'>
-       <GridLoader
-       loading={loading}
-       color='#ff6c6c'
-       margin={2}
-       size={20}
-       css={override}
-       />
-     </div>
-     :
-     <div className="App">
-        <BrowserRouter>
-          <Routes>
-            {/* this is home page route  */}
-            <Route path='/' element={<Home/>}/>
-            <Route path='home' element={<Home/>}/>
-            {/* this route will show our all available products  */}
-            <Route path='products' element={<AllProducts/>}/>
-          </Routes>
-        </BrowserRouter>
-      </div>}
+      {loading ?
+        //  this is for preloader
+        <div className='preloader'>
+          <GridLoader
+            loading={loading}
+            color='#ff6c6c'
+            margin={2}
+            size={20}
+            css={override}
+          />
+        </div>
+        :
+        <div className="App">
+          <ContextProvider>
+            <BrowserRouter>
+              <Routes>
+                {/* this is home page route  */}
+                <Route path='/' element={<Home />} />
+                <Route path='home' element={<Home />} />
+                {/* this route will show our all available products  */}
+                <Route path='products' element={<AllProducts />} />
+              </Routes>
+            </BrowserRouter>
+          </ContextProvider>
+        </div>}
     </>
   );
 }
