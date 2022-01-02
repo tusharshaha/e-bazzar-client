@@ -7,6 +7,7 @@ import { GridLoader } from "react-spinners";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Home from './Components/Home/Home/Home';
+import AllProducts from './Components/AllProducts/AllProducts';
 function App() {
   const [loading, setLoading] = useState(false)
   const override = css``
@@ -27,7 +28,7 @@ function App() {
      <div className='preloader'>
        <GridLoader
        loading={loading}
-       color='#ffe70a'
+       color='#ff6c6c'
        margin={2}
        size={20}
        css={override}
@@ -40,6 +41,8 @@ function App() {
             {/* this is home page route  */}
             <Route path='/' element={<Home/>}/>
             <Route path='home' element={<Home/>}/>
+            {/* this route will show our all available products  */}
+            <Route path='products' element={<AllProducts/>}/>
           </Routes>
         </BrowserRouter>
       </div>}

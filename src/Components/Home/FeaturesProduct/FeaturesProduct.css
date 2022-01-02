@@ -1,3 +1,68 @@
 .content-gap{
     margin-top: 200px;
 }
+.custom-card{
+    position: relative;
+    height: 100%;
+    border-radius: 10px;
+    padding: 30px 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transition: 0.4s;
+}
+.icon-container{
+    position: absolute;
+    top: 0;
+    left: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100px;
+    visibility: hidden;
+}
+.icon-container .icon{
+    font-size: 25px;
+    padding: 3px 7px;
+    background-color: #e2e2e2cc;
+    border-radius: 10px;
+    border: none;
+    color: #6b6b6b;
+    transition: 0.4s;
+}
+.icon-container .icon:hover{
+    background-color: #c0bebecc;
+}
+.custom-card:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.custom-card:hover .icon-container{
+    visibility: visible;
+    transition: 0.4s;
+}
+.card-img{
+    text-align: center;
+}
+.card-img img{
+    margin: 0 auto;
+}
+.view-more{
+    margin-top: 40px;
+    text-align: center;
+}
+.view-more a{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(247, 111, 111, 0.979);
+    transition: 0.4s;
+}
+.view-more a:hover{
+    color: rgba(204, 41, 41, 0.979);
+}
+.view-more a::after{
+    content: '....';
+    font-size: 20px;
+}
+.view-more a::before{
+    content: '....';
+    font-size: 20px;
+}
