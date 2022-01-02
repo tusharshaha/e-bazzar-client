@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../../Shared/Footer/Footer';
 import Header from '../../Shared/Header/Header';
 import TopBanner from '../TopBanner/TopBanner';
 
@@ -9,6 +10,8 @@ const Home = () => {
             <Header></Header>
             {/* This is top banner  */}
             <TopBanner></TopBanner>
+            {/* this is footer  */}
+            <Footer></Footer>
         </>
     );
 };

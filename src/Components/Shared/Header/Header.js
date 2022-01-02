@@ -8,7 +8,7 @@ const Header = () => {
         <Navbar bg='light' fixed='top' expand="lg" variant="light">
             <Container>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Brand>E-Bazzar</Navbar.Brand>
+                <Navbar.Brand className='logo-text'>E-Bazzar</Navbar.Brand>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto text-center">
                         <Nav.Link as={Link} to="/home">Home</Nav.Link>

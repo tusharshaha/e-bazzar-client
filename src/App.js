@@ -10,6 +10,7 @@ import Home from './Components/Home/Home/Home';
 function App() {
   const [loading, setLoading] = useState(false)
   const override = css``
+  // controlling loading time for preloader
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
@@ -22,6 +23,7 @@ function App() {
   return (
     <>
      {loading?
+    //  this is for preloader
      <div className='preloader'>
        <GridLoader
        loading={loading}
@@ -35,6 +37,7 @@ function App() {
      <div className="App">
         <BrowserRouter>
           <Routes>
+            {/* this is home page route  */}
             <Route path='/' element={<Home/>}/>
             <Route path='home' element={<Home/>}/>
           </Routes>
