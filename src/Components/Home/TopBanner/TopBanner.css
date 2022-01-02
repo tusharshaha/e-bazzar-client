@@ -1,0 +1,24 @@
+.top-banner{
+    margin-top: 50px;
+    background-color: #f8f9fa;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.banner-img{
+    text-align: right;
+    width: 100%;
+}
+.banner-img img{
+    width: 350px;
+}
+@media only screen and (max-width:770px) {
+    .top-banner{
+        height: 440px;
+    }
+    .banner-img{
+        display: none;
+    }
+}

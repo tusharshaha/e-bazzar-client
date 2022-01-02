@@ -1,0 +1,19 @@
+.cart-container{
+    position: relative;
+    width: 50px;
+    margin: 0 auto;
+}
+.cart-container .cart-icon{
+    font-size: 30px;
+    margin-left: 5px;
+}
+.cart-total{
+    position: absolute;
+    top: -7px;
+    left: 30px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    padding: 0px 3px;
+    border-radius: 50px;
+}

@@ -25,9 +25,9 @@ function App() {
      <div className='preloader'>
        <GridLoader
        loading={loading}
-       color='yellow'
+       color='#ffe70a'
        margin={2}
-       size={18}
+       size={20}
        css={override}
        />
      </div>
