@@ -61,7 +61,7 @@ function App() {
                 {/* this route for register an user  */}
                 <Route path='register' element={<Register/>}/>
                 {/* this route show single user orders */}
-                <Route path='myOrder' element={<MyOrders/>}/>
+                <Route path='myOrder' element={<PrivateRoute><MyOrders/></PrivateRoute>}/>
                 {/* this is 404 page showing route  */}
                 <Route path='*' element={<NotFound/>}/>
               </Routes>

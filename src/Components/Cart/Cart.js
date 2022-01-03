@@ -31,7 +31,7 @@ const Cart = () => {
             }
             return order1
         })
-        axios.post('http://localhost:5000/orders', order)
+        axios.post('https://secure-spire-40678.herokuapp.com/orders', order)
         .then(res => {
             if(res.data.acknowledged){
                 Swal.fire({

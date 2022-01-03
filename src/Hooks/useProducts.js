@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 const useProducts = ()=>{
     const [products, setProducts] = useState([])
     useEffect(()=>{
-        axios.get('http://localhost:5000/products')
+        axios.get('https://secure-spire-40678.herokuapp.com/products')
         .then(res=> setProducts(res.data))
     },[])
     return {products}

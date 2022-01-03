@@ -6,7 +6,7 @@ const useFirebase = () => {
     const auth = getAuth();
     const [user, setUser] = useState({})
     const [error, setError] = useState('')
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
     // register a new user
     const registerNewUser = (email, password,name,location, navigate, Swal) => {
         setIsLoading(true);
@@ -18,7 +18,7 @@ const useFirebase = () => {
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
-                    title: 'Successfully Login',
+                    title: 'Successfully Register',
                     showConfirmButton: false,
                     timer: 1500
                 })
@@ -52,7 +52,7 @@ const useFirebase = () => {
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
-                    title: 'Successfully Register',
+                    title: 'Successfully Login',
                     showConfirmButton: false,
                     timer: 1500
                 })
@@ -75,7 +75,7 @@ const useFirebase = () => {
             if (user) {
                 setUser(user)
             } else {
-                
+                setUser({})
             }
             setIsLoading(false)
         });

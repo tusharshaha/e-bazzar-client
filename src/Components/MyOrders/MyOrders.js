@@ -10,7 +10,7 @@ const MyOrders = () => {
     const { user, isLoading } = useFirebase();
     useEffect(() => {
         if (!isLoading) {
-            axios.get(`http://localhost:5000/orders/${user?.email}`)
+            axios.get(`https://secure-spire-40678.herokuapp.com/orders/${user?.email}`)
                 .then(res => setOrders(res.data))
         }
     }, [user,isLoading])

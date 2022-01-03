@@ -11,7 +11,7 @@ const ProductDetails = () => {
     const {id} = useParams();
     const {handleCart} = useCart();
     useEffect(()=>{
-        axios.get(`http://localhost:5000/products/${id}`)
+        axios.get(`https://secure-spire-40678.herokuapp.com/products/${id}`)
         .then(res => setProduct(res.data))
     },[id])
     return (
