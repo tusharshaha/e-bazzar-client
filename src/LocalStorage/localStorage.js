@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import Swal from 'sweetalert2';
 const useLocalStorage = () => {
     // find added products
@@ -56,15 +56,17 @@ const useLocalStorage = () => {
     }
     // remove single product form local storage
     const removeProduct = (id) => {
-        const products = getOrders();
-        let order = {}
+        const products = getStoredCart();
         if (products[id]) {
-            order = JSON.parse(products)
-            delete order[id]
+            delete products[id]
+            updateCart(products)
+            const cartLength = Object.keys(products).length;
+            setCartNum(cartLength)
         }
     }
+
     // clear products from loacl storage
     const clearTheCart = () => window.localStorage.removeItem('products');
-    return { addCart, getStoredCart, removeProduct, clearTheCart, handleCart,cartNum }
+    return { addCart, getStoredCart, removeProduct, clearTheCart, handleCart, cartNum }
 }
 export default useLocalStorage;

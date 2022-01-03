@@ -8,9 +8,10 @@
     width: 50px;
     margin: 0 auto;
 }
-.cart-container .cart-icon{
+.cart-container a .cart-icon{
     font-size: 30px;
     margin-left: 5px;
+    color: rgb(114, 113, 113);
 }
 .cart-total{
     position: absolute;
