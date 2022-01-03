@@ -14,3 +14,15 @@
 .delete-btn:hover{
     background-color: rgb(218, 4, 4);
 }
+.order-btn{
+    border: none;
+    border-radius: 6px;
+    color:white;
+    font-weight: bold;
+    background-color: #f7af2a;
+    padding: 3px 10px;
+    transition: 0.4s;
+}
+.order-btn:hover{
+    background-color: #d69927;
+}

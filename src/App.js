@@ -11,6 +11,8 @@ import Home from './Components/Home/Home/Home';
 import AllProducts from './Components/AllProducts/AllProducts';
 import ProductDetails from './Components/Home/ProductDetails/ProductDetails';
 import Cart from './Components/Cart/Cart';
+import Login from './Components/Login/Login';
+import Register from './Components/Register/Register';
 function App() {
   const [loading, setLoading] = useState(false)
   const override = css``
@@ -51,6 +53,10 @@ function App() {
                 <Route path='products/:id' element={<ProductDetails/>}/>
                 {/* this route will show cart products  */}
                 <Route path='cart' element={<Cart/>}/>
+                {/* this is user login route */}
+                <Route path='login' element={<Login/>}/>
+                {/* this route for register an user  */}
+                <Route path='register' element={<Register/>}/>
               </Routes>
             </BrowserRouter>
           </ContextProvider>

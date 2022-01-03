@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react';
-import {Container, Table } from 'react-bootstrap';
+import { Container, Table } from 'react-bootstrap';
 import {AiOutlineCloseCircle} from 'react-icons/ai'
 import useCart from '../../Hooks/useCart';
 import Footer from '../Shared/Footer/Footer';
@@ -12,7 +12,9 @@ const Cart = () => {
     const { getStoredCart,removeProduct} = useCart();
     const { products } = useProducts()
 
-
+    const handlePlaceOrder = ()=>{
+        
+    }
     useEffect(() => {
         const savedCart = getStoredCart();
         const storedCart = []
@@ -57,7 +59,7 @@ const Cart = () => {
                     <tbody>
                         <tr>
                             <td></td>
-                            <td></td>
+                            <td><button className='order-btn'>Place Order</button></td>
                             <td colSpan={2}>Grand Total: <span className='ms-4'>{grandTotal}</span></td>
                         </tr>
                     </tbody>

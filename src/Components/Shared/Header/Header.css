@@ -3,6 +3,20 @@
     font-family: 'Sriracha', cursive;
     font-size: 25px;
 }
+.logout-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: gray;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    margin-top: 7px;
+    width: 70px;
+    height: 30px;
+
+}
 .cart-container{
     position: relative;
     width: 50px;
