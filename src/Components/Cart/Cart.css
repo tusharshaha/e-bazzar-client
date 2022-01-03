@@ -26,3 +26,18 @@
 .order-btn:hover{
     background-color: #d69927;
 }
+.address-form form{
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.address-form form input{
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}

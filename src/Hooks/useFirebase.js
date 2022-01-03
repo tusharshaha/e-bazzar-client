@@ -6,12 +6,13 @@ const useFirebase = () => {
     const auth = getAuth();
     const [user, setUser] = useState({})
     const [error, setError] = useState('')
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(false)
     // register a new user
-    const registerNewUser = (email, password,name, Swal) => {
+    const registerNewUser = (email, password,name,location, navigate, Swal) => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
+                const destination = location.state?.from || '/'
                 setUser(result.user)
                 updateUser(name, email)
                 Swal.fire({
@@ -21,6 +22,7 @@ const useFirebase = () => {
                     showConfirmButton: false,
                     timer: 1500
                 })
+                navigate(destination)
             })
             .catch((error) => {
                 if (error.message.includes('email-already-in-use')) {
@@ -40,10 +42,11 @@ const useFirebase = () => {
          }).catch(err => setError(err.message));
     }
     // login with email and password
-    const logIn = (email, password,Swal) => {
+    const logIn = (email, password, location, navigate, Swal) => {
         setIsLoading(true)
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
+                const destination = location.state?.from || '/'
                 setUser(result.user);
                 setError("");
                 Swal.fire({
@@ -53,6 +56,7 @@ const useFirebase = () => {
                     showConfirmButton: false,
                     timer: 1500
                 })
+                navigate(destination);
             }).catch(error => {
                 if (error.message.includes("user-not-found")) {
                     setError("invalid email and Password");
@@ -64,17 +68,19 @@ const useFirebase = () => {
                 }
             }).finally(() => setIsLoading(false))
     }
+    // get current user
     useEffect(() => {
         setIsLoading(true)
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user)
             } else {
-                setUser({})
+                
             }
             setIsLoading(false)
         });
     }, [auth])
+    // logout an user
     const logOut = () => {
         setIsLoading(true)
         signOut(auth).then(() => {
