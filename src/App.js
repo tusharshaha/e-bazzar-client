@@ -9,6 +9,8 @@ import { useEffect, useState } from 'react';
 import ContextProvider from './Context/ContextProvider'
 import Home from './Components/Home/Home/Home';
 import AllProducts from './Components/AllProducts/AllProducts';
+import ProductDetails from './Components/Home/ProductDetails/ProductDetails';
+import Cart from './Components/Cart/Cart';
 function App() {
   const [loading, setLoading] = useState(false)
   const override = css``
@@ -45,6 +47,10 @@ function App() {
                 <Route path='home' element={<Home />} />
                 {/* this route will show our all available products  */}
                 <Route path='products' element={<AllProducts />} />
+                {/* this route show a product details  */}
+                <Route path='products/:id' element={<ProductDetails/>}/>
+                {/* this route will show cart products  */}
+                <Route path='cart' element={<Cart/>}/>
               </Routes>
             </BrowserRouter>
           </ContextProvider>

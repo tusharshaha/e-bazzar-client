@@ -2,8 +2,10 @@ import React from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import {FaShoppingCart} from 'react-icons/fa'
+import useCart from '../../../Hooks/useCart'
 import './Header.css'
 const Header = () => {
+    const {cartNum} = useCart();
     return (
         <Navbar bg='light' fixed='top' expand="lg" variant="light">
             <Container>
@@ -16,9 +18,10 @@ const Header = () => {
                         <Navbar.Text>
                             <div className='cart-container'>
                                 <FaShoppingCart className='cart-icon'/>
-                                <span className='cart-total'>0</span>
+                                <span className='cart-total'>{cartNum}</span>
                             </div>
                         </Navbar.Text>
+                        
                     </Nav>
                 </Navbar.Collapse>
             </Container>

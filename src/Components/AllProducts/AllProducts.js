@@ -2,12 +2,16 @@ import React from 'react';
 import { Container, Row, Col, Spinner } from 'react-bootstrap';
 import {BsFillCartPlusFill} from 'react-icons/bs';
 import {FaEye} from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import useCart from '../../Hooks/useCart';
 import useProducts from '../../Hooks/useProducts';
 import Footer from '../Shared/Footer/Footer';
 import Header from '../Shared/Header/Header';
 
 const AllProducts = () => {
     const { products } = useProducts();
+    const {handleCart} = useCart();
+    const navigate = useNavigate()
     return (
         <>
             <Header></Header>
@@ -23,10 +27,10 @@ const AllProducts = () => {
                             products?.map(product => <Col key={product._id}>
                                 <div data-aos='fade-up' className='custom-card'>
                                     <div className='icon-container'>
-                                        <button  title='Add To Cart' className="icon">
+                                        <button onClick={()=>handleCart(product._id)} title='Add To Cart' className="icon">
                                             <BsFillCartPlusFill />
                                         </button>
-                                        <button title='View Details' className="icon">
+                                        <button onClick={() => navigate(`/products/${product._id}`)} title='View Details' className="icon">
                                             <FaEye />
                                         </button>
                                     </div>

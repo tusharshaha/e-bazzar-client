@@ -1,14 +1,16 @@
 import React from 'react';
 import { Container, Row, Col, Spinner } from 'react-bootstrap';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import useProducts from '../../../Hooks/useProducts';
 import { BsFillCartPlusFill } from 'react-icons/bs';
 import { FaEye } from 'react-icons/fa';
 import './FeaturesProduct.css'
+import useCart from '../../../Hooks/useCart';
 
 const FeaturesProduct = () => {
     const { products } = useProducts()
-
+    const { handleCart } = useCart();
+    const navigate = useNavigate()
     return (
         <Container className='content-gap'>
             <h2 className='fw-bold text-center'>Our <span className='text-danger'>Features</span> Product</h2>
@@ -22,10 +24,10 @@ const FeaturesProduct = () => {
                         products?.slice(0, 6).map(product => <Col key={product._id}>
                             <div data-aos='fade-up' className='custom-card'>
                                 <div className='icon-container'>
-                                    <button title='Add To Cart' className="icon">
+                                    <button onClick={() => handleCart(product._id)} title='Add To Cart' className="icon">
                                         <BsFillCartPlusFill />
                                     </button>
-                                    <button title='View Details' className="icon">
+                                    <button onClick={() => navigate(`/products/${product._id}`)} title='View Details' className="icon">
                                         <FaEye />
                                     </button>
                                 </div>

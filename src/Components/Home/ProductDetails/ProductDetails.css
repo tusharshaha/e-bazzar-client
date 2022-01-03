@@ -1,0 +1,13 @@
+.product-img{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border: 2px solid rgba(128, 128, 128, 0.527);
+}
+.product-img img{
+    width: 250px;
+    height: 300px;
+}
+.product-details{
+    margin-top: 35px;
+}

@@ -1,4 +1,5 @@
-import Swal from 'sweetalert2'
+import {useState} from 'react';
+import Swal from 'sweetalert2';
 const useLocalStorage = () => {
     // find added products
     const getOrders = () => window.localStorage.getItem('products');
@@ -27,10 +28,15 @@ const useLocalStorage = () => {
         return exists ? JSON.parse(exists) : {};
     }
     // add to cart
+    const [cartNum, setCartNum] = useState(
+        Object.keys(getStoredCart()).length
+    )
     const handleCart = (id) => {
         addCart(id)
         const product = getStoredCart()
         if (product[id]) {
+            const cartLength = Object.keys(product).length;
+            setCartNum(cartLength)
             Swal.fire({
                 position: 'center',
                 icon: 'success',
@@ -59,6 +65,6 @@ const useLocalStorage = () => {
     }
     // clear products from loacl storage
     const clearTheCart = () => window.localStorage.removeItem('products');
-    return { addCart, getStoredCart, removeProduct, clearTheCart, handleCart }
+    return { addCart, getStoredCart, removeProduct, clearTheCart, handleCart,cartNum }
 }
 export default useLocalStorage;
