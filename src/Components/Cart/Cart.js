@@ -90,7 +90,7 @@ const Cart = () => {
                     {cartItem.length &&<tbody>
                         <tr>
                             <td></td>
-                            <td><button onClick={()=> setModalShow(true)} className='order-btn'>Place Order</button></td>
+                            <td><button onClick={()=> setModalShow(true)} className='order-btn'>Checkout</button></td>
                             <td colSpan={2}>Grand Total: <span className='ms-4'>{grandTotal}</span></td>
                         </tr>
                     </tbody>}
